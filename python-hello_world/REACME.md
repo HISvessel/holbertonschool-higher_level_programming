@@ -1,0 +1,1 @@
+This is a new chapter in our studies in Holberton school. Now we will proceed with learning the Python Language of programming. We will now learn the basics and have fun with coding and making programs.
