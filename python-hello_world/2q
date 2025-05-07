@@ -1,0 +1,5 @@
+#!/usr/bin/python3
+str = "Holberton School"
+print(f"{string: * 3}")
+print(f"{string: 0:8}")
+
