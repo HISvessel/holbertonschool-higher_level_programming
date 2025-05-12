@@ -1,0 +1,1 @@
+This repository stores the work to be done for the tasks of importing modules. Modules are sort of functions that can get imported from another file(module) created with a .py suffix and imported unto a Python script. WHat we would do for creating prototypes and header files in C, this would be what we use in Python. The journey continues, Py is fun
