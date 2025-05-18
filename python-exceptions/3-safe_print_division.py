@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 def safe_print_division(a, b):
-    cuocient = 0
+    cuocient
     try:
         cuocient = a / b
     except ZeroDivisionError:
