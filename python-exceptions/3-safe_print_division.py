@@ -1,0 +1,10 @@
+#!/usr/bin/python3
+def safe_print_division(a, b):
+    cuocient = int
+    try:
+        cuocient = a / b
+    except ZeroDivisionError:
+        return None
+    finally:
+        print("Inside result: {}".format(cuocient))
+    return cuocient
