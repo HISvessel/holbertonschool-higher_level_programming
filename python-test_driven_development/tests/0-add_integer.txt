@@ -1,0 +1,13 @@
+>>> add_integer = ___import___('0-add_integer').add_integer
+>>> add_integer(1, 2)
+3
+>>> add_integer(100)
+198
+>>> add_integrer(1.9, 2.1)
+4
+>>> add_integer(7, "String")
+Traceback (most recent call):
+TypeError: b must be an integer
+>>> add_integer("Nothing")
+Traceback (most recent call last):
+TypeError: a must be an integer
