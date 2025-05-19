@@ -4,8 +4,8 @@
 >>> add_integer(100)
 198
 >>> add_integer(1.9, 2.1)
-4
->>> add_integer(7, "String")
+3
+>>> add_integer(7, "S")
 Traceback (most recent call):
 TypeError: b must be an integer
 >>> add_integer("Nothing")
