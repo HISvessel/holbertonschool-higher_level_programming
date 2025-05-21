@@ -1,0 +1,1 @@
+This repository holds all the functions and projects for our classes and objects tasks. This is the beginning of our Object Oriented Programming at Holberton, where we work with more han just procedural development.  The journey continues, Python is awesome.
