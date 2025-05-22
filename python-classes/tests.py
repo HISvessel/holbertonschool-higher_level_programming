@@ -7,8 +7,8 @@ class Person:
      Update: greeting to the newly initialized user
     """
     def introduction(self):
-        print("Hello,", self.name,"you are", self.age,"years old.")
-        print("You work as a", self.job)
+        print("Hola,", self.name,"tu tienes", self.age,"anos")
+        print("Eres una", self.job)
 
     """ 
     this fucntion initializes a new person of the class Person
@@ -20,9 +20,11 @@ class Person:
         self.job = job
 
 
-Person("Calvin", 23, "croupier").introduction()
+first_child = Person("Emma", 2, "nina").introduction()
+second_child = Person("Luna", 1, "baby").introduction()
 #introduction()
-print(Person)
+print(first_child)
+print(second_child)
 """^^^^^^
 this ouputs None, for some reason 
 """
