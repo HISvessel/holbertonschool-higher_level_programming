@@ -3,12 +3,16 @@
 
 
 class Square:
+    """a new class was created for  Square with a private instance"""
+
     def __init__(self, size=0):
+
         """
         two errors are raised for this function:
         ValueError if size is less than 0
         TypeError if size does not recieve an integer
         """
+
         self.__size = size
         if not isinstance(size, int):
             raise TypeError("size must be an integer")
