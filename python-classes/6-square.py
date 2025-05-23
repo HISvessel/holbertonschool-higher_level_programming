@@ -42,21 +42,27 @@ class Square:
     def position(self, value):
         """if a tuple of two positive integers is not passed
         a typeError message is raised"""
-        check = 0
-        while 1:
-            if type(value) is not tuple or len(value) != 2:
-                check += 1
-                break
-            if value[0] < 0 or value[1] < 0:
-                check += 1
-                break
-            if type(value[0]) is not int or type(value[1]) is not int:
-                check += 1
-                break
-        if check is 0:
-            self.__position = value
-        else:
-            raise TypeError("position must be a tuple of 2 positive integers")
+        self.__position = value
+        if (
+            not isinstance(value, tuple) or
+            len(value) != 2 or
+            not all(isinstance(i, int) and i >= 0 for i in value)
+        ):
+            raise TypeError("position must be  tuple with 2 positive integers")
+        #check = 0
+        #while 1:
+        #    if type(value) is not tuple or len(value) != 2:
+        #        check += 1
+        #        break
+        #    if value[0] < 0 or value[1] < 0:
+        #        check += 1
+        #        break
+        #    if type(value[0]) is not int or type(value[1]) is not int:
+        #        check += 1
+        #        break
+        #if check is 1:
+        #    raise TypeError("position must be a tuple of 2 positive integers")
+        self.__position = value
 
     """this returns the area of a square's size"""
     def area(self):
