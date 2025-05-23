@@ -42,13 +42,12 @@ class Square:
     def position(self, value):
         """if a tuple of two positive integers is not passed
         a typeError message is raised"""
-        self.__position = value
         if (
             not isinstance(value, tuple) or
             len(value) != 2 or
             not all(isinstance(i, int) and i >= 0 for i in value)
         ):
-            raise TypeError("position must be  tuple with 2 positive integers")
+            raise TypeError("position must be tuple with 2 positive integers")
         #check = 0
         #while 1:
         #    if type(value) is not tuple or len(value) != 2:
