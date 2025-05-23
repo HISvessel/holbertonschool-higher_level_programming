@@ -20,7 +20,7 @@ class Square:
     """this function uses the getter and setter method to
     make an private instance be declared public"""
     @size.setter
-    def size(self, value):
+    def size(self, value=0):
         """raises errors if not the correct type
         of if value is less than 0"""
         self.__size = value
