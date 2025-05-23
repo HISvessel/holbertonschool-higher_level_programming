@@ -10,8 +10,8 @@ class Square:
         """this function creates a private instance of a class
         a new instance is given by the name of position"""
 
-        self.__size = size
-        self.__position = position
+        self.size = size
+        self.position = position
 
     @property
     def size(self):
@@ -71,10 +71,10 @@ class Square:
     def my_print(self):
         """this should print out a new line
         if size equals to 0, otherwise prints a square"""
-        if self.size == 0:
+        if self.__size == 0:
             print()
         else:
-            for _ in range(self.position[1]):
+            for _ in range(self.__position[1]):
                 print()
-            for _ in range(self.size):
-                print("_" * self.position[0] + "#" * self.size)
+            for _ in range(self.__size):
+                print("_" * self.__position[0] + "#" * self.__size)
