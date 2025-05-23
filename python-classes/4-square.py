@@ -6,7 +6,7 @@ class Square:
     """this new class has a few private instances
     but also public instances of the class,
       so that we may use and retrieve private data"""
-    def __init__(self, size):
+    def __init__(self, size=0):
         """this function creates a private instance of a class"""
 
         self.__size = size
@@ -20,7 +20,7 @@ class Square:
     """this function uses the getter and setter method to
     make an private instance be declared public"""
     @size.setter
-    def size(self, value=0):
+    def size(self, value):
         """raises errors if not the correct type
         of if value is less than 0"""
         self.__size = value
