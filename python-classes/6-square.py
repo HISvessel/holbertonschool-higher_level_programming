@@ -47,19 +47,6 @@ class Square:
                 not all(isinstance(i, int) for i in value) or
                 not all(i >= 0 for i in value)):
             raise TypeError("position must be a tuple of 2 positive integers")
-        #check = 0
-        #while 1:
-        #    if type(value) is not tuple or len(value) != 2:
-        #        check += 1
-        #        break
-        #    if value[0] < 0 or value[1] < 0:
-        #        check += 1
-        #        break
-        #    if type(value[0]) is not int or type(value[1]) is not int:
-        #        check += 1
-        #        break
-        #if check is 1:
-        #    raise TypeError("position must be a tuple of 2 positive integers")
         self.__position = value
 
     """this returns the area of a square's size"""
