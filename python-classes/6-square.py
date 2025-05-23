@@ -18,6 +18,18 @@ class Square:
         """this obtains the private instance called size"""
         return self.__size
 
+    """setting a public instance of private size"""
+    @size.setter
+    def size(self, value):
+        """raises value errors and type errors
+        if size is not a positive number or an integer"""
+        if not isinstance(value, int):
+            raise TypeError("size must be an integer")
+        if value < 0:
+            raise ValueError("size must be >= 0")
+        else:
+            self.__size = value
+
     """this new private instance position is now to be obtained"""
     @property
     def position(self):
@@ -25,28 +37,24 @@ class Square:
         return self.__position
 
     """this function uses the getter and setter method to
-    make an private instance be declared public"""
-    @size.setter
-    def size(self, value):
-        """raises errors if not the correct type
-        of if value is less than 0"""
-        self.__size = value
-        if not isinstance(value, int):
-            raise TypeError("size must be an integer")
-        if value < 0:
-            raise ValueError("size must be >= 0")
-        return value
-
+    make a position instance public"""
     @position.setter
     def position(self, value):
-        self.__position = value
-        if (
-            not isinstance(value, tuple) or
-            len(value) != 2 or
-            not all(isinstance(i, int) and i >= 0 for i in value)
-        ):
+        check = 0
+        while 1:
+            if type(value) is not tuple or len(value) != 2:
+                check += 1
+                break
+            if value[0] < 0 or value[1] < 0:
+                check += 1
+                break
+            if type(value[0]) is not int or type(value[1]) is not int:
+                check += 1
+                break
+        if check is 0:
+            self.__position = value
+        else:
             raise TypeError("position must be a tuple of 2 positive integers")
-        return value
 
     """this returns the area of a square's size"""
     def area(self):
