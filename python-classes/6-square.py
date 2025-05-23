@@ -33,13 +33,15 @@ class Square:
     """this new private instance position is now to be obtained"""
     @property
     def position(self):
-        """this returns the privae instance position"""
+        """this returns the private instance position"""
         return self.__position
 
     """this function uses the getter and setter method to
     make a position instance public"""
     @position.setter
     def position(self, value):
+        """if a tuple of two positive integers is not passed
+        a typeError message is raised"""
         check = 0
         while 1:
             if type(value) is not tuple or len(value) != 2:
