@@ -17,13 +17,13 @@ class Square:
     def size(self):
         """this obtains the private instance called size"""
         return self.__size
-    
+
     """this new private instance position is now to be obtained"""
     @property
     def position(self):
         """this returns the privae instance position"""
         return self.__position
-    
+
     """this function uses the getter and setter method to
     make an private instance be declared public"""
     @size.setter
@@ -36,14 +36,13 @@ class Square:
         if value < 0:
             raise ValueError("size must be >= 0")
         return value
-    
+
     @position.setter
     def position(self, value):
         self.__position = value
         if not isinstance(value, tuple()):
             raise TypeError("position must be a tuple of 2 positive integers")
         return value
-
 
     """this returns the area of a square's size"""
     def area(self):
@@ -61,19 +60,3 @@ class Square:
                 print()
             for _ in range(self.size):
                 print("_" * self.position[0] + "#" * self.size)
-
-
-my_square_1 = Square(3)
-my_square_1.my_print()
-
-print("--")
-
-my_square_2 = Square(3, (1, 1))
-my_square_2.my_print()
-
-print("--")
-
-my_square_3 = Square(3, (3, 0))
-my_square_3.my_print()
-
-print("--")
