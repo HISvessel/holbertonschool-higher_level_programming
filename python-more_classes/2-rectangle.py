@@ -60,7 +60,7 @@ class Rectangle:
     """A new function that returns the perimeter of the class"""
     def perimeter(self):
         """returning two times the area"""
-        if self.__height or self.__width == 0:
+        if self.__height == 0 or self.__width == 0:
             return 0
         else:
             return 2 * (self.__height + self.__width)
