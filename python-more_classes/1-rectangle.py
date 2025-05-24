@@ -14,7 +14,7 @@ class Rectangle:
     def height(self):
         return self.__height
 
-    height.setter
+    @height.setter
     def height(self, value):
 
         """This function stores the attribute with a value
@@ -47,7 +47,7 @@ class Rectangle:
         TypeError if the value obtained is not an integer
         ValueError if the value obtained is less than 0"""
         if type(value) is not int:
-            raise TypeError("width must be an intger")
+            raise TypeError("width must be an integer")
         if value < 0:
             raise ValueError("width must be >= 0")
         self.__width = value
