@@ -18,11 +18,11 @@ class Rectangle:
     """We will now use getter and setter method
     to obtain public instance of height and store as private"""
     @property
-    def height(self):
-        return self.__height
+    def width(self):
+        return self.__width
 
-    @height.setter
-    def height(self, value):
+    @width.setter
+    def width(self, value):
 
         """This function stores the attribute with a value
 
@@ -32,19 +32,19 @@ class Rectangle:
         TypeError if the value obtained is not an integer
         ValueError if the value obtained is less than zero"""
         if type(value) is not int:
-            raise TypeError("height must be an integer")
+            raise TypeError("width must be an integer")
         if value < 0:
-            raise ValueError("height must be >= 0")
-        self.__height = value
+            raise ValueError("width must be >= 0")
+        self.__width = value
 
     """We will now use the getter and setter
     method to make private instance of width"""
     @property
-    def width(self):
-        return self.__width
+    def height(self):
+        return self.__height
 
-    @width.setter
-    def width(self, value):
+    @height.setter
+    def height(self, value):
 
         """We will set the value of width
 
@@ -57,7 +57,7 @@ class Rectangle:
             raise TypeError("width must be an integer")
         if value < 0:
             raise ValueError("width must be >= 0")
-        self.__width = value
+        self.__height = value
 
     """A new function that returns the area of the class Rectangle"""
     def area(self):
