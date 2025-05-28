@@ -1,4 +1,4 @@
->>> BaseGeometry = __import__('7-base_geometry.py').BaseGeometry
+>>> BaseGeometry = __import__('7-base_geometry').BaseGeometry
 
 """unit testing a class called BaseGeometry
 some of these test include
@@ -8,7 +8,8 @@ recieving an negative integer as value
 recieving a float as value
 recieving a negative float"""
 
-bg = BaseGeometry()
+>>> bg = BaseGeometry()
+
 
 bg.integer_validator
 >>> bg.integer_validator("name", 2)
