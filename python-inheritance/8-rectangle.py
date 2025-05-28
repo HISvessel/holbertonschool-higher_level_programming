@@ -12,5 +12,5 @@ class Rectangle(BaseGeometry):
         inheriting the class function integer validator"""
         self.__width = width
         self.__height = height
-        BaseGeometry.integer_validator(self, "height", height)
-        BaseGeometry.integer_validator(self, "width", width)
+        self.integer_validator("height", height)
+        self.integer_validator("width", width)
