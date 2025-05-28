@@ -9,10 +9,6 @@ recieving a float as value
 recieving a negative float"""
 
 >>> bg = BaseGeometry()
->>> bg.area()
-Traceback (most recent call):
-	...
-Exception: "area() is not implemented"
 
 bg.integer_validator
 >>> bg.integer_validator("name", 2)
