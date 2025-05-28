@@ -1,4 +1,4 @@
->>> BaseGeometry = __import__(7-base_geometry.py).BaseGeometry
+>>> BaseGeometry = __import__('7-base_geometry.py').BaseGeometry
 
 """unit testing a class called BaseGeometry
 some of these test include
