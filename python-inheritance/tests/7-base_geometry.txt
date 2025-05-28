@@ -1,0 +1,35 @@
+>>> BaseGeometry = __import__(7-base_geometry.py).BaseGeometry
+
+"""unit testing a class called BaseGeometry
+some of these test include
+recieving an empty string as the first argument
+recieving an integer as the frst argument
+recieving an negative integer as value
+recieving a float as value
+recieving a negative float"""
+
+bg = BaseGeometry()
+
+bg.integer_validator
+>>> bg.integer_validator("name", 2)
+>>> bg.integer_validator("base", -3)
+Traceback (most, recent call last)
+    ...
+ValueError: base must be greater than 0
+
+>>> bg.integer_validator("4", 4.0)
+Traceback (most recent call)
+    ...
+TypeError: 4 must be an integer
+
+>>> bg.integer_validator("repl", -4.3)
+Traceback (most recent call)
+    ...
+TypeError: repl must be an integer
+
+>>> bg.integer_validator(4, 4)
+>>> bg.integer_validator("", 3)
+>>> bg.integer_validator("base", "int")
+Traceback (most recent call)
+    ...
+TypeError: base must be an integer
