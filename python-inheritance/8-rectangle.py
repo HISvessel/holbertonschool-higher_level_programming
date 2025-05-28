@@ -4,9 +4,12 @@
 
 BaseGeometry = __import__('7-base_geometry').BaseGeometry
 
+
 class Rectangle(BaseGeometry):
-    """thi new subclass inherits from the basegeometry superclass"""
+    """this new subclass inherits from the basegeometry superclass"""
     def __init__(self, width, height):
+        """privatizing both of our instance attributes
+        inheriting the class function integer validator"""
         self.__width = width
         self.__height = height
         BaseGeometry.integer_validator(self, "height", height)
