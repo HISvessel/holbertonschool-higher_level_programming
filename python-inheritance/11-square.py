@@ -18,7 +18,7 @@ class Square(Rectangle):
         self.integer_validator("size", size)
         super().__init__(size, size)
         self.__size = size
-    
+
     """obtaining the correct string to be stored with the class name"""
     def __str__(self):
-        return(f"[Square] {self.__size}/{self.__size}")
+        return (f"[Square] {self.__size}/{self.__size}")
