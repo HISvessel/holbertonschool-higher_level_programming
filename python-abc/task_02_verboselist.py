@@ -29,7 +29,7 @@ class VerboseList(list):
         super().remove(item)
 
     def pop(self, item=-1):
-        print(f"Popped [{self[item]}] from the list")
+        print(f"Popped [{self[item]}] from the list.")
         super().pop(item)
 
 
