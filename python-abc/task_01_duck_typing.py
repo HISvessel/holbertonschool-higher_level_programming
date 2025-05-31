@@ -1,4 +1,5 @@
 #!/us/bin/python3
+
 """This module contains
 an abstract class called shape
 two concrete classes called rectangle and circle
@@ -68,4 +69,3 @@ contain the methods as described"""
 def shape_info(obj):
     print(f"Area: {obj.area()}")
     print(f"Perimeter: {obj.perimeter()}")
-
