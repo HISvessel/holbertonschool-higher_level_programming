@@ -26,11 +26,11 @@ class VerboseList(list):
 
     def remove(self, item):
         print(f"Removed [{item}] from the list.")
-        super().remove(item)
+        super().remove(item) if item in self else None
 
     def pop(self, item=-1):
         print(f"Popped [{self[item]}] from the list.")
-        super().pop(item)
+        super().pop(item) if len(self) > 0 else None
 
 
 if __name__ == "__main__":
