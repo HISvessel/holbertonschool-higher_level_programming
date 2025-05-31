@@ -38,13 +38,3 @@ class VerboseList(list):
         else:
             print("No item to pop from list")
             return None
-
-
-if __name__ == "__main__":
-    vl = VerboseList([1, 2, 3])
-    vl.append(4)
-    vl.extend([5, 6])
-    vl.remove(2)
-    vl.pop()
-    vl.pop(0)
-    print(vl)
