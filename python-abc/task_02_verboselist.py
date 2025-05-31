@@ -25,12 +25,19 @@ class VerboseList(list):
         print(f"Extended the list with [{len(iterable)}] items.")
 
     def remove(self, item):
-        print(f"Removed [{item}] from the list.")
-        super().remove(item) if item in self else None
+        if item in self:
+            print(f"Removed [{item}] from the list.")
+            super().remove(item)
+        else:
+            print(f"[{item}] does not exist on list")
 
     def pop(self, item=-1):
-        print(f"Popped [{self[item]}] from the list.")
-        super().pop(item) if len(self) > 0 else None
+        if len(self) > 0:
+            print(f"Popped [{self[item]}] from the list.")
+            super().pop(item)
+        else:
+            print("No item to pop from list")
+            return None
 
 
 if __name__ == "__main__":
