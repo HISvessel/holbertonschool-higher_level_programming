@@ -12,13 +12,13 @@ class SwimMixin:
     """this class has a method that prints a single message"""
 
     def swim(self):
-        print("The creature swims")
+        print("The creature swims!")
 
 class FlyMixin:
     """this second class has a method that prints a single message"""
 
     def fly(self):
-        print("The creature flies")
+        print("The creature flies!")
 
 class Dragon(SwimMixin, FlyMixin):
     """this class has a single unique method called roar
