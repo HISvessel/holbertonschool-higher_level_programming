@@ -9,4 +9,5 @@ def write_file(filename="", text=""):
     not exist, it creates it by mean of the 'w' write argument"""
 
     with open(filename, 'w', encoding='utf-8') as f:
-        f.write(text)
+        this = f.write(text)
+        print(this)
