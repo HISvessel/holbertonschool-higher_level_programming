@@ -7,5 +7,5 @@ def read_file(filename=""):
     we use this method to safely close and secure documents
     after the read builtin has been executed"""
 
-    with open('0-read_file.py') as filename:
-        filename.read()
+    with open(filename) as f:
+        print(f.read(), end="")
