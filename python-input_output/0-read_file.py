@@ -7,5 +7,5 @@ def read_file(filename=""):
     we use this method to safely close and secure documents
     after the read builtin has been executed"""
 
-    with open('filename', encoding="utf-8"):
+    with open():
         filename.read()
