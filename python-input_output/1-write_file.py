@@ -8,5 +8,5 @@ def write_file(filename="", text=""):
     """this function writes text on a file. if the file does
     not exist, it creates it by mean of the 'w' write argument"""
 
-    with open(filename) as f:
+    with open(filename, 'w', encoding='locale') as f:
         f.write(text)
