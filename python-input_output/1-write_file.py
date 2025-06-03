@@ -9,4 +9,4 @@ def write_file(filename="", text=""):
     not exist, it creates it by mean of the 'w' write argument"""
 
     with open(filename, "w") as f:
-        print(f.write(text), end="")
+        f.write(text)
