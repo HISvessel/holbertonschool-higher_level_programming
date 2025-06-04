@@ -5,9 +5,10 @@ from json import loads
 
 
 def load_from_json_file(filename):
+
     """the function is designed to read from a JSON
     file and convert the returned string into an
     object"""
-    
+
     with open(filename) as f:
         return loads(f.read())
