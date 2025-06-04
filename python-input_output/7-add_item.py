@@ -19,10 +19,7 @@ and simultaneously written u=into the json files as json objects"""
 
 
 filename = "add_file.json"
-try:
-    argument_list = load_from_json_file(filename)
-except Exception:
-    argument_list = []
-
+load_from_json_file(filename)
+argument_list = []
 argument_list.extend(argv[1:])
 save_to_json_file(argument_list, filename)
