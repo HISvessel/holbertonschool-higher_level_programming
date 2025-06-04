@@ -7,7 +7,7 @@ to a test file"""
 def write_file(filename="", text=""):
     """this function writes text on a file. if the file does
     not exist, it creates it by mean of the 'w' write argument
-    
+
     since the requirement of the task is to see that the write
     builtin is writing the data in the document, the best way to
     test it is by returning the value given at the end of the 
