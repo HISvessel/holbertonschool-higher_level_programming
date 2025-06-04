@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """this module contains the function load from json file
 which loads an object contained within a JSON file"""
-from json import loads
+import json
 
 
 def load_from_json_file(filename):
@@ -10,5 +10,5 @@ def load_from_json_file(filename):
     file and convert the returned string into an
     object"""
 
-    with open(filename) as f:
-        return loads(f.read())
+    with open(filename) as file:
+        return json.load(file)
