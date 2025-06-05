@@ -23,9 +23,11 @@ as to why the filw would not properly write objects added to it"""
 
 
 filename = "add_file.json"
+
 try:
     argument_list = load_from_json_file(filename)
-except Exception:
+except FileNotFoundError:
     argument_list = []
+
 argument_list.extend(sys.argv[1:])
 save_to_json_file(argument_list, filename)
