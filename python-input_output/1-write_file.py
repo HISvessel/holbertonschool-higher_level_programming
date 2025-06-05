@@ -10,7 +10,7 @@ def write_file(filename="", text=""):
 
     since the requirement of the task is to see that the write
     builtin is writing the data in the document, the best way to
-    test it is by returning the value given at the end of the 
+    test it is by returning the value given at the end of the
     function as stored data"""
 
     with open(filename, 'w', encoding='utf-8') as f:
