@@ -2,7 +2,7 @@
 """this module contains a function called save_to_json_file
 which takes a json object and converts it a to readable text
 that can be written into a Python text file"""
-from json import dumps
+import json
 
 
 def save_to_json_file(my_obj, filename):
@@ -11,4 +11,4 @@ def save_to_json_file(my_obj, filename):
     file given by the parameter filename"""
 
     with open(filename, 'w') as f:
-        f.write(dumps(my_obj))
+        json.dump(my_obj, f)
