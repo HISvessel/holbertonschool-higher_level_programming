@@ -8,7 +8,9 @@ import json
 def save_to_json_file(my_obj, filename):
     """this function converts the object to string
     by the use of dumps and then is written into a
-    file given by the parameter filename"""
+    file given by the parameter filename
+    
+    changing specific outputs"""
 
     with open(filename, 'w') as f:
         json.dump(my_obj, f)

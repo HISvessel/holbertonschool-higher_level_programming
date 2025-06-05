@@ -8,7 +8,9 @@ def load_from_json_file(filename):
 
     """the function is designed to read from a JSON
     file and convert the returned string into an
-    object"""
+    object
+    
+    changing particular output"""
 
     with open(filename, encoding="utf-8") as file:
         return json.load(file)
