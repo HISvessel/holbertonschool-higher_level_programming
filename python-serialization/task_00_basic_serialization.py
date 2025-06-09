@@ -5,6 +5,7 @@ serialization and deserialization, shows us the differnece"""
 
 import json
 
+
 """serializing is the process by which we convert a Python
 object as a JSON string"""
 
@@ -17,7 +18,7 @@ def serialize_and_save_to_file(data, filename):
             data - a pyton dictionary with a data
             filename: a filename that is taken as a string
         """
-        
+
         json.dump(data, filename)
 
 """this function deserializes an existing string inside of a file
