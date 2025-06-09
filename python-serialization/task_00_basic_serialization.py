@@ -19,7 +19,7 @@ def serialize_and_save_to_file(data, filename):
             filename: a filename that is taken as a string
         """
 
-        json.dump(data, filename)
+        json.dump(data, file)
 
 """this function deserializes an existing string inside of a file
 by loading it as an object, which is to recreate the object as it was"""
