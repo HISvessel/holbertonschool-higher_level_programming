@@ -23,8 +23,8 @@ class Student:
                 isinstance(attr, str) for attr in attrs):
             return {k: v for k, v in self.__dict__.items() if k in attrs}
         return self.__dict__
-    
-    def reload_from_json(self,json):
+
+    def reload_from_json(self, json):
         """this public method allows attributes
         to be loaded unto a class by using a dictionary"""
 
