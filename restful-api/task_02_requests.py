@@ -7,16 +7,18 @@ import csv
 and the function fetch and save, which prints and saves posts
 respectively."""
 
+
 def fetch_and_print_posts():
     """this function fetch all post requests from thr JSON
     PLaceholder and prints their titles"""
 
     response = requests.get('https://jsonplaceholder.typicode.com/posts')
-    print("Status code:", response.status_code)
+    print("Status Code:", response.status_code)
     if response.status_code == 200:
         data = response.json()
         for post in data:
             print(post["title"])
+
 
 def fetch_and_save_posts():
     """this function obtains from JSONPlaceholder
