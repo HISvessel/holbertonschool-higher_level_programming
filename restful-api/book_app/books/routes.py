@@ -1,19 +1,16 @@
 from flask import Blueprint, jsonify, request
 import json, os
+from .utils import load_from_json, save_to_json
 
 
 books_bp = Blueprint("books", __name__)
-BOOK_FILE = "book_list.json"
 RESET_TOKEN = "my-secret-token"
 books = []
 
 
 @books_bp.route("/books", methods=['GET']) # book redirection, the place where our primary data is displayed
 def get_book():
-    if os.path.exists(BOOK_FILE):
-        with open(BOOK_FILE) as file:
-            return jsonify(json.load(file))
-    return jsonify([]), 200
+    return jsonify(load_from_json()), 200
 
 @books_bp.route("/books", methods=['POST'])
 def add_book(): # method to add a book to the display in our /book redirect
@@ -23,20 +20,6 @@ def add_book(): # method to add a book to the display in our /book redirect
     save_to_json(books)
 
     return jsonify(new_book), 201
-
-
-"""helper functions useful for loading from json and saving into json"""
-def load_from_json(): #loads book dictionary data contained in a JSON file
-    if os.path.exists(BOOK_FILE):
-        with open(BOOK_FILE) as file:
-            return json.load(file)
-    return []
-
-def save_to_json(books): # posts new data inside of a JSON file
-    with open(BOOK_FILE, "w") as file:
-        json.dump(books, file, indent=4)
-"""this is the end of our helper functions(to be stored in a different file)"""
-
 
 @books_bp.route("/books/batch", methods=['POST'])
 def batch_add_books(): # method to add numerous books
@@ -100,6 +83,5 @@ def reset_books():
     if request.headers.get("X-Reset-Token") is not RESET_TOKEN:
         return jsonify({"error": "unauthorized access"}), 403
     seed_data = []
-    with open(BOOK_FILE, "w") as file:
-        json.dump(seed_data, file, indent=4)
+    save_to_json(seed_data)
     return jsonify({"Message":"Books database reset successfully"}), 200
