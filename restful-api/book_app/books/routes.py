@@ -1,10 +1,10 @@
 from flask import Blueprint, jsonify, request
 import json, os
 from .utils import load_from_json, save_to_json
+from config import RESET_TOKEN
 
 
 books_bp = Blueprint("books", __name__)
-RESET_TOKEN = "my-secret-token"
 books = []
 
 

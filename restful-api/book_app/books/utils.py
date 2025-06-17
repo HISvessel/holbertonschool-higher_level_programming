@@ -1,7 +1,6 @@
 import json, os
+from config import BOOK_FILE
 
-
-BOOK_FILE = "book_list.json"
 
 def load_from_json():
     if os.path.exists(BOOK_FILE):
