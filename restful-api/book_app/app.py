@@ -1,6 +1,5 @@
-from flask import Flask, jsonify, request
-import json
-import os
+from flask import Flask
+from book import books_bp
 
 """this module contains a simple test web aplication for creating our own list of books as inventory.
 The application is run with the Flask module and data is stored in a JSON file. This acts as a mockup of our big
@@ -14,9 +13,7 @@ Lorem ipsum
 """
 
 app = Flask(__name__)
-BOOK_FILE = "book_list.json" #document that stores our data created; can be extracted and displayed
-RESET_TOKEN = "my-secret-token" #a token for our reset function
-books = [] # an array of dictionaries to be uploaded
+app.register_blueprint(books_bp)
 
 
 @app.route('/') #the root route
