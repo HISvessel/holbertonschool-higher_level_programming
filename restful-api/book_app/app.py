@@ -1,5 +1,5 @@
 from flask import Flask
-from book import books_bp
+from books import books_bp
 
 """this module contains a simple test web aplication for creating our own list of books as inventory.
 The application is run with the Flask module and data is stored in a JSON file. This acts as a mockup of our big
