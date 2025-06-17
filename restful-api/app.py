@@ -71,7 +71,7 @@ def batch_add_books(): # method to add numerous books
 @app.route("/books/<int:id>", methods= ['PUT'])
 def update_book(id): # method to update an existing book inside of our JSON file; fetched by iD
     updated_data = request.get_json()
-    try: 
+    try:
         books = load_from_json()
         book_found = False
         for book in books:
@@ -84,10 +84,10 @@ def update_book(id): # method to update an existing book inside of our JSON file
             return jsonify({"Error": "book not found"}), 404
         save_to_json(books)
         return jsonify({"Success": "Book updated", "book": book}), 201
-    
+
     except FileNotFoundError:
             return jsonify({"Error": "File not found"}), 500
-        
+
 @app.route("/books/<int:id>", methods=["DELETE"]) #method to delete a single book. Fetching done by iD
 def delete_book(id):
     try:
@@ -100,7 +100,7 @@ def delete_book(id):
                 break
         if book_found == False:
             return jsonify({"Error": "book not found"}), 404
-        
+
         save_to_json(books)
         return jsonify({"Message": "book deleted succesfully"}), 200
 
