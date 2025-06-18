@@ -8,12 +8,14 @@ books_bp = Blueprint("books", __name__)
 books = []
 
 
-@books_bp.route("/books", methods=['GET']) # book redirection, the place where our primary data is displayed
+@books_bp.route("/books", methods=['GET'])
+# book redirection, the place where our primary data is displayed
 def get_book():
     return jsonify(load_from_json()), 200
 
 @books_bp.route("/books", methods=['POST'])
-def add_book(): # method to add a book to the display in our /book redirect
+# method to add a book to the display in our /book redirect
+def add_book():
     new_book = request.get_json()
     books = load_from_json()
     books.append(new_book)
@@ -22,7 +24,8 @@ def add_book(): # method to add a book to the display in our /book redirect
     return jsonify(new_book), 201
 
 @books_bp.route("/books/batch", methods=['POST'])
-def batch_add_books(): # method to add numerous books
+#method to add numerous books
+def batch_add_books():
     many_books = request.get_json()
 
     if not isinstance(many_books, list):
@@ -37,7 +40,8 @@ def batch_add_books(): # method to add numerous books
         return jsonify({"Error": "File does not exist"}), 500
 
 @books_bp.route("/books/<int:id>", methods= ['PUT'])
-def update_book(id): # method to update an existing book inside of our JSON file; fetched by iD
+#method to update an existing book in our JSON database; fetch by id
+def update_book(id):
     updated_data = request.get_json()
     try:
         books = load_from_json()
@@ -56,7 +60,8 @@ def update_book(id): # method to update an existing book inside of our JSON file
     except FileNotFoundError:
             return jsonify({"Error": "File not found"}), 500
 
-@books_bp.route("/books/<int:id>", methods=["DELETE"]) #method to delete a single book. Fetching done by iD
+@books_bp.route("/books/<int:id>", methods=["DELETE"])
+#method to delete a single book. Fetching done by iD
 def delete_book(id):
     try:
         books = load_from_json()
@@ -78,7 +83,6 @@ def delete_book(id):
 
 @books_bp.route("/reset", methods= ["POST"])
 #resetting method, it loads the file and overrides content by dumping an empty list
-
 def reset_books():
     if request.headers.get("X-Reset-Token") is not RESET_TOKEN:
         return jsonify({"error": "unauthorized access"}), 403
