@@ -18,5 +18,10 @@
         "id": 7,
         "title": "The Force",
         "author": "Don Winslow"
+    },
+    {
+        "id": 8,
+        "author": "JK Rowling",
+        "title": "Fantastic Beasts and where to find them"
     }
 ]
