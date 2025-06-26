@@ -1,0 +1,1 @@
+a new repository to introduce us to SQL, databases, relational data and queries.
