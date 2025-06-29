@@ -1,0 +1,1 @@
+Continuing our work with SQL queries, particularly with permission and joins.
