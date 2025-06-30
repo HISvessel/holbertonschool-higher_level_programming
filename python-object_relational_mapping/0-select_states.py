@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 """this module retrieves all the states in our hbtn_0e_usas database"""
+
 import MySQLdb
 import sys
 
