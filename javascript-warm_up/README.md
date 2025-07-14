@@ -1,0 +1,1 @@
+console.log{"Hello"}, and welcome to JavaScript. This is where coding functions meet front end functionlity and development. time to learn.
