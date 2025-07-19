@@ -1,0 +1,1 @@
+this is our formal introduction to DOM manipulation, which is the creation and the altering of documented objects.
