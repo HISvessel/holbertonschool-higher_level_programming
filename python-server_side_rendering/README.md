@@ -1,0 +1,1 @@
+This project is designed to teach about the Server Side Rendering of Front End API by utilizing Flask module for Python.
