@@ -1,4 +1,4 @@
-from jinja2 import PackageLoader, Environment, select_autoescape, FileSystemLoader
+import os
 
 
 """this module contains a function that generates a personalized
@@ -18,30 +18,39 @@ will then be filled with unique information for each separate
 invitation."""
 
 def generate_invitations(template, attendees):
-    try:
 
-        env = Environment(
-            loader=FileSystemLoader("templates")
-        )
-        #this variable gets the template(defined in the main function)
-        our_template = env.get_template(template)
-        for attendee in attendees:
-            at_name = attendee["name"]
-            at_title = attendee["event_title"]
-            at_date = attendee["event_date"]
-            at_location = attendee["event_location"]
-            new_template = our_template.render(name = at_name, event_title = at_title, 
-                                               event_date = at_date, event_location = at_location)
+    if template is not type(str):
+            print(f"Template must be a string, got {type(template)}")
+            return
 
-    except (Exception, TypeError):
-        if template is not type(str):
-            raise TypeError("Our template must be a string")
-    
-        if len(template) == 0:
-            raise Exception("The template must not be empty")
+    if template.strip == "":
+        print(f"Template is empty, no output file generated.")
+        return
 
-        if attendees is not type(list):
-            raise TypeError("You must incluse a list of dictionaries")
+    if attendees is not type(list):
+        print("Attendees a list of dictionaries")
+        return
         
-        if len(attendees) == 0:
-            raise Exception("List must not be empty")
+    if not attendees:
+        print("No data provided, no output files generated")
+        return
+
+        #this variable gets the template(defined in the main function)
+    for i, attendee in enumerate(attendees):
+        at_name = attendee.get("name") or 'N/A'
+        at_title = attendee.get("event_title") or 'N/A'
+        at_date = attendee.get("event_date") or 'N/A'
+        at_location = attendee.get("event_location") or 'N/A'
+        new_template = (template
+                        .replace('{name}', at_name)
+                        .replace('{event_title}', at_title)
+                        .replace('{event_date}', at_date)
+                        .replace('{event_location}', at_location)
+                        )
+        out_doc = f"output_{i}.txt"
+    
+    try:
+        with open(out_doc, 'w') as file:
+             file.write(new_template)
+    except OSError as e:
+         print(f"[Error] Could not write {out_doc}: {e}")
