@@ -19,7 +19,7 @@ invitation."""
 
 def generate_invitations(template, attendees):
 
-    if template is not type(str):
+    if not isinstance(template, str):
             print(f"Template must be a string, got {type(template)}")
             return
 
@@ -27,7 +27,7 @@ def generate_invitations(template, attendees):
         print(f"Template is empty, no output file generated.")
         return
 
-    if attendees is not type(list):
+    if not isinstance(attendees, list):
         print("Attendees a list of dictionaries")
         return
         
