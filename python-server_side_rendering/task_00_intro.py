@@ -1,4 +1,3 @@
-import flask
 from jinja2 import PackageLoader, Environment, select_autoescape, FileSystemLoader
 
 
@@ -21,22 +20,18 @@ invitation."""
 def generate_invitations(template, attendees):
     try:
 
-        """this function generates a personalized invitation
-        based off of a template. This function assumes a file is
-        already open, so what we do is iterate through our dictionary
-        of attendees and replace the placeholder values with the
-        dictionary values by their keys. I can assume we will read
-        through the HTML templace and append the value to the respective
-        element(take the name in the dictionary and replacing it with
-        the value stored). Everytime, we generate individual
-        files for each member of the dictionary."""
         env = Environment(
             loader=FileSystemLoader("templates")
         )
-        #this variable gets the template and renders it at the same time
-        text = env.get_template("template.txt").render()
-
-        print(text) #testing to see if the text prints
+        #this variable gets the template(defined in the main function)
+        our_template = env.get_template(template)
+        for attendee in attendees:
+            at_name = attendee["name"]
+            at_title = attendee["event_title"]
+            at_date = attendee["event_date"]
+            at_location = attendee["event_location"]
+            new_template = our_template.render(name = at_name, event_title = at_title, 
+                                               event_date = at_date, event_location = at_location)
 
     except (Exception, TypeError):
         if template is not type(str):
