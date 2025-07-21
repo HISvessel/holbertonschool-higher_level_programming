@@ -1,8 +1,8 @@
 from flask import Flask, render_template
 
-"""this module creates a small application that renders
-a unique html document with flask"""
+
 app = Flask(__name__)
+
 
 @app.route('/')
 def home():
