@@ -1,0 +1,1 @@
+Refreshing on Python knowledge. Everything is object, which takes from the first class everything concept as learned in Object Oriented Programming introduction.
