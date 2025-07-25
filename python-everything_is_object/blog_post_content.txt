@@ -1,0 +1,269 @@
+    Python is a programming language that stands to this day as the most commonly used by a great many industries. From software development, data analysis, data science,
+minor front end developing and hardware creation and management, Python has become the hallmark for new coders to inmerse themselves into the computer science world. If any characteristics
+were to define Python, more so than its versatility and popularity, it would have to be its uncomplicated syntax: its ease of reading could be easily confused as writing
+code in English language more so than in computer language. And this simplified syntax is not merely for appearances either; the backbone of the language relies on high level 
+performance and simplicity, not only for a beginner friendly introduction to computer, but also one that would allow you to easily create and manipulate data without having to
+manually collect and dispose of everything yourself. Coming from a position of learning a low level programming language like C (a language that is primarily used to build Python, btw),
+the concept of manipulating memory and having data integrity as well as memory safety relies on your knowledge of memory control. Python, on the other hand, does not force you to
+learn manual memory handling; all of it is done automatically, giving you peace of mind that your program won't crash so easily. And the process by which this is simplified, there is an 
+approach that was taken in order to make this possible, which will be the topic that we will discuss on this short reading: in Python, everything is an object. Yes, in Python everything is an object. Another thing that is characteristic of Python is the creation of classes and objects, for a coding paradigm called Object Oriented 
+Programming, or OOP. Objects are themselves a data type that would consist of other data types that, by the nature of OOP, inherits from other data types for creation. The most 
+primitive of data types, even numbers, floats and strings, inherits from the object type in Python. 
+
+ID:
+    More than explaining the hows and whys of OOPs, I want to better expose the nuances of Python as a language by discussing the topic of objects and their behaviour. This exposition is based on 
+the Python documentation and tasks that better help me understand how data creation and instantiation work. As a general concept of coding, we create data by declaring it with 
+characters and assigned values. While true, there is much more happening underneath the block. In actuality, you are creating space in your commputer's memory to store that data 
+and its value. Now, imagine you would need to find that data somewhere in your computer manually; not by the name you give it, but by the value that was given to it from your computer's memory.
+A daunting task, I reckon. Well, our dear Python does that for you. It stores the data and also gives it a way for you to identify it through other means other than the name you gave that data.
+This other mean is known as the Id. In Python, when calling it, it looks something like this:
+
+**For this example, we are going to create one of the more common data types in Python: a list.
+
+>>>l1 = [1, 2, 3]
+>>> print(id(l1))
+139822976921792 <----this is the id number for the variable named 'l1'
+
+There is a benefit for you, the reader, in having this information. Knowing that the computer generates an identity means that there is active participation from the computer for 
+data being created. And with this, you also get something important in return: data integrity. By this, I mean that your very specific object with its very specific id is placed
+somewhere in memory that is unique for it. We can prove this is true by doing this:
+
+>>> l1 = [1, 2, 3]
+>>> l2 = [1, 2, 3]
+>>> print(l1 == l2)
+True 
+>>> print(l1 is l2)
+False
+
+Now, what is all this that just happened and what relevance is there? We have first initialized two lists that, at first glance, hold the very same values: [1, 2, 3]. It only makes sense
+that when comparing equality, or ==, it returns true because the values are the same. Now, in our next line, we get a comparison between the objects themselves, and we see that it returns false.
+Given by what was established previously, l1 and l2 are two distinct objects, so when using the 'is' keyword, you are comparing their identities(the one provided by the computer's memory), which
+are unique to each other. Already, we see the concept of integrity coming forth in order to protect data with equal values from also being called equal in identity. In other words, 
+you can contain the same, but not BE the same. But, what if we did something like this? :
+
+>>> l1 = [1, 2, 3]
+>>> l2 = l1 <---- we are telling l2 to BE l1
+>>> print(l1 == l2)
+True 
+>>> print(l1 is l2)
+True <-----it now returns true
+
+Types: 
+Here, we see something different. The variable l2 doesn't just hold the same value as l1, but it also has the very same identity number. This little trick is called Aliasing in 
+Python, but it can go by another commonly used name: pointer. Pointers serve a clever purpose: to create a new data that points to a very specific place in memory that already contains
+data. Now, paying closer attention, one realizes that something crucial happened here. We made a comparison between two pieces of data that, despite adopting similar traits, would be different under means of 
+normal comparison. After all, l1 is certainly not l2. Well, in programming, this comparison can result in a true statement being passed due to the nature of how data is uniified. It is made possible
+by having a type composition of a data that inherits from an instance of an *object*. In Object Oriented Programming, there is a key concept called inheritance, which allows attributes (features and quirks, if I may)
+to be passed between various instances of other data types. That way, these features or quirks of whatever data will always trace back to root of all data. In the case of Python, we call that
+*object*. This means, that in Python, data is always identified primarily as an object. Object refers to the prime composition of the data created; more so than referring to a word to simplify our 
+definition of our creation. What use is there to this? For starters, the ability to make such comparisons is only possible by turning all data created into a single universal composition. Having established
+a universal composition, objects require things to be categorized as more particular things; for a way to classify these objects. This classification is called Type. Types tell us the kind of objects that we created. 
+Using the examples above, we instantiated an object called "l1", which is an object of Type list. Going a little further, this l1 list contains an arrangement of objects of type integer, which are the numbers 
+1, 2, and 3. 
+
+
+
+Mutable data:
+    Now that we know about data types, I want to discuss about data type qualities. It's for this reason that we started off discussing lists. You see, when creating objects, we normally assign values
+to it at instance. The beauty of this data integrity that comes with programming is that you retain data in the shape you want to, giving you careful exercise of your memory manipulation. However, there 
+is a key aspect that you as a programmer can perform, and that is to manipulate data after it was created. Given an example where you already wrote something but you actually needed that particular 
+data to be something else, you would probably want to change it. Well, in Python, this object can be recreated internally. What do I mean by this? The following example will drive home this point:
+>>> a = 10
+>>> print(a)
+10
+>>> a = 9
+>>> print(a)
+9
+As you see, "a" had an original value of 10, but was later reassigned to be valued at 9. This ability to change the value of data is known as object mutation. Basically, you want the id for the given object
+ to remain the same, so as to keep things in the original design, but you also want the data to represent what you actually it was actually meant for. Or perhaps you created it to be something now, but then
+one might decide for it to be something else down the road. A data type like lists is one that is mutable, where we can create a list that is first set to hold the values [1, 2, 3], but later on, we can
+remake the list to instead hold the values [4, 5, 6, 7]. This little feature about lists is one that, as we will show later, will have great convencience for continguous data storage. Not only that, but since lists can be
+mutable, Python equipped certain methods to be able to change the size and structure of them. Let's take a look at some of these methods:
+>>> l1 = [1, 2, 3]
+>>> print(l1)
+[1, 2, 3]
+>>> l1.append(4) <-----this will add an element at the end of our list 
+>>> print(l1)
+[1, 2, 3, 4]
+>>> l1.pop(0) <------ this will delete(or pop) the element at the given index
+1    <--------the popped element is shown here
+>>> print(l1)
+[2, 3, 4]
+>>> l1[0] = 1 <------- here, we manually select the index of the list and change its value
+>>> print(l1)
+[1, 3, 4]
+
+As you see, just a simple list was totally changed in numerous ways from what it once was: we can change the size of the list by giving it extra indeces and placing values there, and we can also change 
+existing values. And not just in an orderly fashion, we can also perform these changes in an unorderly manner, by searching at a particular place in our list and replacing it with a new number. This kind of 
+flexibility is fantastic for manipulating this data, but as you will see later, it can also cause some distinct behaviour if not utilized carefully.
+
+Inmutable data
+    It's not to say that all data changes, though. There are instances where we want to maintain data and set it in stone, so to speak. We should have data that is fluid, and have its value as something 
+manipulable. And we should also have data that, once created, cannot be changed under any means. This type of data is called inmutable. In Python, many of its data is mutable, but there are other exceptions
+where they are not. Tuples are such an example. Previously, we saw lists as a structure of other data types and that the list can change in size and content. Tuples are also another way for creating data
+structure to store other primitive objects, but with a slight difference:
+
+>>> l1 = [1, 2, 3]
+>>> t1 = (1, "Hello", l1)
+>>> print(l1)
+[1, 2, 3]
+>>> print(t1)
+(1, "Hello", [1, 2, 3])
+
+It would probably be best to clarify that lists work for creating data structure as long as we store similar data, so a structure of numbers, strings, characters, other lists, etc. Tuples, on the other 
+hand, is one of those data structures that can hold mmultiple data types, so you can store any combination of the aforementioned data types in one single place in memory. To better preserve the integrity 
+tuples for their distinct case uses, the way to preserve integrity is to make them inmutable, so as to not change its composition. With a slight distinction, of course. We will talk about this in the next segment.
+
+Python's treating of mutable and inmutable data:
+    It's all well to know these qualities, but what for? Well, for proper creation and management of objects, of course. How well we end up coding in Python will largely depend on how we created our objects and 
+how scalable and structured we are keeping these created objects. The better these aspects are taken into consideration, the better we protect the external source which will be stored internally. Yet, we also want to be able 
+to have that flexibility wherever we need it. So far, we have discussed only small objects such as lists and tuples. Let's see how all of this ties to the creation of larger and denser objects:
+**For this example, we will create two classes and manipulate its data. Classes are one of the primary objects that we use for instantiation of objects and collection of prime data.
+class Toy:
+    def __init__(self, color, name):
+        self.color = color
+        self.name = name
+    
+class Kid:
+    def __init__(self, name, toys=[]):
+        self.name = name
+        self.toys = toys
+    
+    def add_toy(self, toy):
+        return self.toys.append(toy)
+
+A new set of classes, one called Kid and another called Toy, were created and constructed to be instance of objects that can store data about a kid and their toys. Note, please, on this example, that 
+we have constructed the Kid class to have a set number of toys(by its attirbutes) to be stored in an empty list(a mutable data type), along with a function that adds a toy to that list. 
+Lets take a look at what happens when we created objects of the Kid class:
+
+Alice = Kid("Alice")
+Bob = Kid("Bob")
+Toy_1 = Toy("Red", "Ball")
+Alice.add_toy(Toy_1)
+
+print(Alice.toys)
+print(Bob.toys)
+
+Output:
+[<__main__.Toy object at 0x7fe0790f7d50>]
+[<__main__.Toy object at 0x7fe0790f7d50>]
+
+Now, any Python coder will look at this and be unsurprised that somehow this even happened, but to summarize this example: we created two kids, Alice and Bob, and told the computer that only Alice should 
+have a toy: a singular Red Ball. And to prove that the computer did as we told it, we decided to point to the individual lists of both Alice and Bob. But, to our surprise, we discovered that both Alice and  
+Bob had the same toy. But, we only meant for Alice to have the toy, not Bob. I reckon this might be retribution for being stingy and not giving Bob a toy as well, but before we fix that, let's first 
+look at the root of our mistake and understand what happened. In our Kid class, we determined to construct our kid to have an empty, yet mutable, list of toys. Not only that, but we have also made our class 
+to have public attributes that can be changed outside of the class structure. So, when we mix these factors together and create a new object of the class Kid, we are creating a list that will take inputs and store them universally on that list. 
+Which means that, everytime we create a kid and add a toy to the kid, in actuality we are adding a toy to the class Kid, not to the newly created object of class Kid. It only makes sense that both of our objects can tap into the same list, since
+it was not protected. In a real world scenario, this could accidentally end up storing that raw data in the class Data Type and not on the individual objects created. Not that we would want to do such a thing, but here we 
+see that, when using mutable data types, we must use individual layers of protection to preserve data integrity. In this example, it would look something like this:
+
+>>> class Toy:
+>>>     def __init__(self, color, name):
+>>>         self.color = color
+>>>         self.name = name
+>>>    
+>>> class Kid:
+>>>     def __init__(self, name, toys=None):
+>>>         self.name = name
+>>>         self.toys = toys if toys is not None else [] <---- prevents toys from being added to the list contained in the class
+>>>     
+>>>     def add_toy(self, toy):
+>>>         return self.toys.append(toy)
+    
+
+>>> Alice = Kid("Alice")
+>>> Bob = Kid("Bob")
+
+>>> Alice.add_toy(Toy("Red", "Ball")) <---this toy is now given ONLY to Alice
+>>> Bob.add_toy(Toy("Blue", "Wagon")) <----- this toy is now given ONLY to Bob
+
+>>> print(Alice.toys)
+>>> print(Bob.toys)
+
+Output:
+[<__main__.Toy object at 0x7f13f2717d50>] <----its own place in memory(the Red Ball)
+[<__main__.Toy object at 0x7f13f2717d90>] <---- a different place in memory(the Blue Wagon)
+
+Well, what about inmutable data types? Simple: since they are inmutable, the data is protected from being changed, even when an instance of an object pointing to the same place in memory is set in place. We 
+can make an easy demonstration with this following example, following a similar principal with the creation of classes and objects that are instance of classes:
+>>> class Car:
+>>>     def __init__(self, make, model, year):
+>>>         self.make = make
+>>>         self.model = model
+>>>         self.year = year
+>>>     
+>>>     wheels = 4
+>>>
+>>>     def honk(self):
+>>>         return ("HONK")
+
+>>> car1 = Car("Toyota", "Corolla", 1985)
+>>> truck = Car("Hino", "Truck", 1997)
+>>> trucker_wheels = Car.wheels <--- we create an object that points to the wheels attribute inside of the class, much more public and much more susceptible to changes
+>>> trucker_wheels = 6 <------we would take this to mean that the wheels attribute inside of cars should be updated to 6
+>>> print(Car.wheels)
+>>> print(trucker_wheels)
+>>> print(trucker_wheels is Car.wheels)
+
+For context, we created a class of a Car, with the make, model and year as constructor instance of the class attributes, and we also gave it an attribute that is universal for all cars: wheels = 4. Naturally, 
+we would expect that, if I were to create an instance of an object that points to the wheels attribute of a car, then the class attribute would also change. Well, lets take a look at what those print directives give us:
+Output:
+>4
+>6
+>False
+
+Looks like we got a different outcome than expected. And boy, are we glad this is the case. This proves to us that Python performs as desired for instances of inmutable data being updated. Here, the truck 
+object was given a distinct attribute of wheels so that it has 6 instead of 4. However, this now means that the truck object no longer points to the same data on the Car class, and to prove it, when checking 
+if the objects are the same, the comparison returns False. This may seem confusing, given that earlier we proved that numbers can be updated by pointing to the same object and changing it. This is where exceptions 
+start to be made and Python better adheres to data integrity, so that when met with changing with inmutable data such as integers, floats, strings and tuples, the primary composition remains unchanged 
+and only copies of the original reflect these changes. 
+
+Passing argument to functions with mutable and inmutable data:
+    That same principle is applied on for arguments into functions. Python will adhere to integrity and protection when inmutable data types are being changed, and will grant sufficient flexibility 
+when met with mutable data types. Let's take the following function for example, where we simply set the function to take a list as an argument and store it for cloning:
+
+def copy_my_list(a_list):
+    return a_list
+>>> my_list = [1, 2, 3]
+>>> my_other_list = copy_my_list(my_list)
+>>> print(my_list == my_other_list)
+True
+>>> print(my_list is my_other_list)
+True
+>>> my_other_list.append(4)
+>>> print(my_list)
+[1, 2, 3, 4]
+
+This function creates a clone of a mutable data type, which we then see that its contents are correctly duplicated. This also means that whatever changes we make unto the duplicated list will also reflect 
+on the original data. Again, this may have an undesired secondary effect, where we desired to see how data changes but inadvertently reflected those changes unto the original space in memory, thus breaking logic. 
+One good fix for this instance is to slice the whole list by using [:] to segment a totally new list, or by using the copy() builtin function, where a copy of the data with a separate id is made, thus keeping 
+the desired logic and protecting the original structure created. Let's now take a look at this next function, where the same idea is instead performed on an inmutable data type:
+
+def copy_integer(x):
+    return x
+
+>>> a = 10
+>>> b = copy_integer(a) <--- b is an alias of a
+>>> print(a)
+10
+>>> print(b)
+10
+>>> print(a is b)
+True
+>>> b = 11 <----- in theory, this would change the value of a to 11
+>>> print(a)
+10
+
+Once again, Python makes the same distinction of value and identity for passing arguments to functions. And so we wonder, what use is there for knowing this? Well, remember, functions are made to make 
+data manipulation as modular and as scalable as it possibly can be, but knowing this, we must adhere to the rules and the principles. When creating functions that modify mutable data types, we should take 
+into account how this performance is going to affect the original data or object created. If it is something that, for instance, we want to keep protected, then we should take into account measures that 
+ensure mixing logic and mistaking the original with any clones or duplicates. And that, if we create duplicates without protecting our originals, we could unwittingly modify what we would otherwise want 
+to leave untouched. Alternatively, if we were perhaps creating functions that work on inmutable data types, it would be good to keep in mind that this data will not change, and that it will create a duplicate. 
+However, if the need would arise where we want to open a position for changing inmutable data types, then we would need to carefully access the place in memory where we stored this inmutable data and change it 
+at the source. It's not uncommon that we do such a thing, yet inmutable objects are good for quality storage. So, at the end of the day, our attention is usually focused toward creating duplicates and 
+handling those instead. 
+
+Conclusion:
+    Looking at the sfety and the system behind data creation and manipulation, its no wonder as to why Python remains as one of the most frequently used programming languages today. This was created with 
+safety in mind and ease of use. I emntioned at the beginning of this blog that, coming from a language like C, you truly do approeciate how Python was created, and also how low level programming in general 
+better prepares you for exploring with other porgramming languages and paradigms. 
