@@ -133,7 +133,7 @@ class Kid:
         return self.toys.append(toy)
 
 A new set of classes, one called Kid and another called Toy, were created and constructed to be instance of objects that can store data about a kid and their toys. Note, please, on this example, that 
-we have constructed the Kid class to have a set number of toys(by its attirbutes) to be stored in an empty list(a mutable data type), along with a function that adds a toy to that list. 
+we have constructed the Kid class to have a set number of toys(by its attributes) to be stored in an empty list(a mutable data type), along with a function that adds a toy to that list. 
 Lets take a look at what happens when we created objects of the Kid class:
 
 Alice = Kid("Alice")
@@ -157,60 +157,56 @@ Which means that, everytime we create a kid and add a toy to the kid, in actuali
 it was not protected. In a real world scenario, this could accidentally end up storing that raw data in the class Data Type and not on the individual objects created. Not that we would want to do such a thing, but here we 
 see that, when using mutable data types, we must use individual layers of protection to preserve data integrity. In this example, it would look something like this:
 
->>> class Toy:
->>>     def __init__(self, color, name):
->>>         self.color = color
->>>         self.name = name
->>>    
->>> class Kid:
->>>     def __init__(self, name, toys=None):
->>>         self.name = name
->>>         self.toys = toys if toys is not None else [] <---- prevents toys from being added to the list contained in the class
->>>     
->>>     def add_toy(self, toy):
->>>         return self.toys.append(toy)
+class Toy:
+    def __init__(self, color, name):
+        self.color = color
+        self.name = name
+   
+class Kid:
+    def __init__(self, name, toys=None):
+        self.name = name
+        self.toys = toys if toys is not None else [] <---- prevents toys from being added to the list contained in the class
+    
+    def add_toy(self, toy):
+        return self.toys.append(toy)
     
 
 >>> Alice = Kid("Alice")
 >>> Bob = Kid("Bob")
-
 >>> Alice.add_toy(Toy("Red", "Ball")) <---this toy is now given ONLY to Alice
 >>> Bob.add_toy(Toy("Blue", "Wagon")) <----- this toy is now given ONLY to Bob
-
 >>> print(Alice.toys)
+[<__main__.Toy object at 0x7f13f2717d50>]
 >>> print(Bob.toys)
-
-Output:
-[<__main__.Toy object at 0x7f13f2717d50>] <----its own place in memory(the Red Ball)
-[<__main__.Toy object at 0x7f13f2717d90>] <---- a different place in memory(the Blue Wagon)
+[<__main__.Toy object at 0x7f13f2717d90>]
 
 Well, what about inmutable data types? Simple: since they are inmutable, the data is protected from being changed, even when an instance of an object pointing to the same place in memory is set in place. We 
 can make an easy demonstration with this following example, following a similar principal with the creation of classes and objects that are instance of classes:
->>> class Car:
->>>     def __init__(self, make, model, year):
->>>         self.make = make
->>>         self.model = model
->>>         self.year = year
->>>     
->>>     wheels = 4
->>>
->>>     def honk(self):
->>>         return ("HONK")
+
+class Car:
+    def __init__(self, make, model, year):
+        self.make = make
+        self.model = model
+        self.year = year
+    
+    wheels = 4
+
+    def honk(self):
+        return ("HONK")
 
 >>> car1 = Car("Toyota", "Corolla", 1985)
 >>> truck = Car("Hino", "Truck", 1997)
 >>> trucker_wheels = Car.wheels <--- we create an object that points to the wheels attribute inside of the class, much more public and much more susceptible to changes
 >>> trucker_wheels = 6 <------we would take this to mean that the wheels attribute inside of cars should be updated to 6
 >>> print(Car.wheels)
+4
 >>> print(trucker_wheels)
+6
 >>> print(trucker_wheels is Car.wheels)
+False
 
 For context, we created a class of a Car, with the make, model and year as constructor instance of the class attributes, and we also gave it an attribute that is universal for all cars: wheels = 4. Naturally, 
 we would expect that, if I were to create an instance of an object that points to the wheels attribute of a car, then the class attribute would also change. Well, lets take a look at what those print directives give us:
-Output:
->4
->6
->False
 
 Looks like we got a different outcome than expected. And boy, are we glad this is the case. This proves to us that Python performs as desired for instances of inmutable data being updated. Here, the truck 
 object was given a distinct attribute of wheels so that it has 6 instead of 4. However, this now means that the truck object no longer points to the same data on the Car class, and to prove it, when checking 
@@ -224,6 +220,7 @@ when met with mutable data types. Let's take the following function for example,
 
 def copy_my_list(a_list):
     return a_list
+
 >>> my_list = [1, 2, 3]
 >>> my_other_list = copy_my_list(my_list)
 >>> print(my_list == my_other_list)

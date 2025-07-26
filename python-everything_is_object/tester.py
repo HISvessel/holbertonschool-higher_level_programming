@@ -1,3 +1,4 @@
+import copy
 i = 0
 j = 0
 
@@ -70,3 +71,25 @@ print(id(a))
 print(id(b))
 b = 11
 print(a)
+
+class spaceship:
+    def __init__(self, name, crew):
+        self.name = name
+        self.crew = crew
+    
+    def _str_(self):
+        return (f"{self.name} contains the following members: {', '.join(self.crew)}")
+
+original = spaceship("Voyager", ["Alice", "Bob"])
+original_crew = original.crew
+original_name = original.name
+clone = copy.copy(original)
+
+cloned_crew = clone.crew
+cloned_crew.append("Joyce")
+cloned_name = clone.name
+cloned_name = "Voyager 2"
+print("Original team: ", original_crew)
+print("Modified team: ", cloned_crew)
+print("This is our first tripulation ship's name:", original_name)
+print("This is our copied tripulation ship's name:", cloned_name)
