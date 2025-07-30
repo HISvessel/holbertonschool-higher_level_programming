@@ -67,5 +67,3 @@ setTimeout(resolve, 2000, 'Bye'));
 
 Promise.all([promise1, promise2, promise3]).then(values => console.log(values))
 
-/* fetching objects with http and AJAX */
-promise4 = fetch('https://jsonplaceholder.typicode.com/users')
