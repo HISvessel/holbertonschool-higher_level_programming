@@ -71,8 +71,9 @@ function greetPerson(name) {
 }
 
 function fullName(first, last) {
-    
+  return first + '' + last;
 }
+
 console.log("")
 console.log("-".repeat(20))
 console.log("We will now introduce two people for a convo.")
@@ -83,8 +84,16 @@ function dialogue() {
   console.log("Unknown 2: Hello, I'm Kevin");
   console.log("Kevin:", greetPerson("Chat") + ", pleasure to meet you");
   console.log("Chat:", greetPerson("Kevin") + ", pleasure is all mine");
-  console.log
 }
 
 dialogue();
+
+const add = (a, b) => {return a + b}; /* short adding function */
+/* if our arrow function is to return something, then place between curly braces*/
+console.log(add(3, 4));
+
+const difference = (a, b) => a - b;
+
+result = difference(5, 2) /* can perform function to store in another var or const*/
+console.log(result)
 
